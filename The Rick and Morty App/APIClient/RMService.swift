@@ -30,7 +30,7 @@ final class RMService{
     public func execute<T: Codable>(
         _ request: RMRequest,
         expecting type: T.Type,
-        completion: @escaping (Result <T, Error>) -> Void
+        completion: @escaping (Result<T, Error>) -> Void
     ) {
         guard let urlRequest = self.request(from: request) else {
             completion(.failure(RMServiceError.failedToCreateRequest))
@@ -58,7 +58,9 @@ final class RMService{
     // MARK: - Private
     
     private func request(from rmRequest: RMRequest) -> URLRequest? {
-        guard let url = rmRequest.url else { return nil }
+        guard let url = rmRequest.url else {
+            return nil
+        }
         var request = URLRequest(url: url)
         request.httpMethod = rmRequest.httpMethod
         return request
