@@ -22,7 +22,6 @@ final class RMCharacterListViewViewModel: NSObject {
     
     private var characters: [RMCharacter] = [] {
         didSet{
-            print("Creating View Models")
             for character in characters {
                 let viewModel = RMCharacterCollectionViewCellViewModel(
                     characterName: character.name,
@@ -68,11 +67,10 @@ final class RMCharacterListViewViewModel: NSObject {
         }
         
         isLoadingMoreCharacters = true
-        print("Fetching more Characters...")
+
         
         guard let request = RMRequest(url: url) else {
             isLoadingMoreCharacters = false
-            print("Failed to create request")
             return
         }
         
@@ -86,9 +84,7 @@ final class RMCharacterListViewViewModel: NSObject {
                 let moreResults = responseModel.results
                 let info = responseModel.info
                 strongSelf.apiInfo = info
-                
-                print(moreResults.count)
-                
+                                
                 let originalCount = strongSelf.characters.count
                 let newCount = moreResults.count
                 let total = originalCount + newCount
@@ -97,14 +93,15 @@ final class RMCharacterListViewViewModel: NSObject {
                     return IndexPath(row: $0, section: 0)
                 })
                 
-                print(indexPathsToAdd)
                 strongSelf.characters.append(contentsOf: moreResults)
                 
                 DispatchQueue.main.async {
                     strongSelf.delegate?.didLoadMoreCharacters(
                         with: indexPathsToAdd
                     )
+                    
                     strongSelf.isLoadingMoreCharacters = false
+                    
                 }
             case .failure(let failure):
                 print(String(describing: failure))
