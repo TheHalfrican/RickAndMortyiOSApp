@@ -27,7 +27,7 @@ final class RMCharacterEpisodeCollectionViewCell: UICollectionViewCell {
         super.prepareForReuse()
     }
     
-    public func configure(with viewModel: RMCharacterEpisodeCollectionViewViewModel) {
+    public func configure(with viewModel: RMCharacterEpisodeCollectionViewCellViewModel) {
         
     }
 }

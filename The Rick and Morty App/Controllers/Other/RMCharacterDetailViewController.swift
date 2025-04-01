@@ -91,7 +91,6 @@ extension RMCharacterDetailViewController: UICollectionViewDelegate, UICollectio
                 fatalError("Could not dequeue cell")
             }
             cell.configure(with: viewModel)
-            cell.backgroundColor = .systemIndigo
             return cell
             
         case .information(let viewModels):
@@ -102,7 +101,6 @@ extension RMCharacterDetailViewController: UICollectionViewDelegate, UICollectio
                 fatalError("Could not dequeue cell")
             }
             cell.configure(with: viewModels[indexPath.row])
-            cell.backgroundColor = .systemMint
             return cell
         case .episodes(let viewModels):
             guard let cell = collectionView.dequeueReusableCell(
@@ -112,7 +110,6 @@ extension RMCharacterDetailViewController: UICollectionViewDelegate, UICollectio
                 fatalError("Could not dequeue cell")
             }
             cell.configure(with: viewModels[indexPath.row])
-            cell.backgroundColor = .systemTeal
             return cell
         }
         
