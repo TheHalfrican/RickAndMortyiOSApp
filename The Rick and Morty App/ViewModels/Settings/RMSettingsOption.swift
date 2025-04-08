@@ -57,19 +57,19 @@ enum RMSettingsOption: CaseIterable {
     var iconImage: UIImage? {
         switch self {
             case .rateApp:
-            return UIImage(systemName: "star.fill")
+            return UIImage(systemName: "star")
         case .contactUs:
-            return UIImage(systemName: "envelope.fill")
+            return UIImage(systemName: "envelope")
         case .terms:
-            return UIImage(systemName: "doc.fill")
+            return UIImage(systemName: "doc")
         case .privacy:
-            return UIImage(systemName: "lock.fill")
+            return UIImage(systemName: "lock")
         case .apiReference:
-            return UIImage(systemName: "info.circle")
+            return UIImage(systemName: "info")
         case .viewSeries:
-            return UIImage(systemName: "film.fill")
+            return UIImage(systemName: "film")
         case .viewCode:
-            return UIImage(systemName: "code.slash")
+            return UIImage(systemName: "qrcode")
         }
     }
 }
