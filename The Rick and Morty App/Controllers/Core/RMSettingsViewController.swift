@@ -5,6 +5,7 @@
 //  Created by Owner on 3/3/25.
 //
 
+import StoreKit
 import SafariServices
 import SwiftUI
 import UIKit
@@ -61,6 +62,9 @@ final class RMSettingsViewController: UIViewController {
             
         } else if option == .rateApp {
             // Show rating prompt
+            if let windowScene = view.window?.windowScene {
+               AppStore.requestReview(in: windowScene)
+            }
         }
     }
 }
