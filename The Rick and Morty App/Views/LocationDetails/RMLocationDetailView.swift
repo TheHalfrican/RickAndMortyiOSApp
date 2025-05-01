@@ -218,7 +218,6 @@ extension RMLocationDetailView {
             bottom: 5,
             trailing: 10
         )
-
         let group = NSCollectionLayoutGroup.horizontal(
             layoutSize:  NSCollectionLayoutSize(
                 widthDimension: .fractionalWidth(1.0),
