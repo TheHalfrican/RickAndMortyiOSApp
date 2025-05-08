@@ -39,6 +39,10 @@ final class RMSearchViewViewModel {
         self.searchResultHandler = block
     }
     
+    public func registerNoResultsHandler(_ block: @escaping () -> Void) {
+        self.noResultsHandler = block
+    }
+    
     public func executeSearch() {
         
         // Build arguments
@@ -77,7 +81,7 @@ final class RMSearchViewViewModel {
             case .success(let model):
                 self?.processSearchResults(model: model)
             case .failure:
-                print("Failed to get results")
+                self?.handleNoResults()
                 break
             }
         }
@@ -111,7 +115,12 @@ final class RMSearchViewViewModel {
             self.searchResultHandler?(results)
         } else {
             // Fallback Error
+            handleNoResults()
         }
+    }
+    
+    private func handleNoResults() {
+        noResultsHandler?()
     }
     
     public func set(query text: String) {
