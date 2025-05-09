@@ -94,7 +94,7 @@ final class RMSearchViewViewModel {
                 return RMCharacterCollectionViewCellViewModel(
                     characterName: $0.name,
                     characterStatus: $0.status,
-                    characterImageUrl: URL(string: $0.url)
+                    characterImageUrl: URL(string: $0.image)
                 )
             }))
         }

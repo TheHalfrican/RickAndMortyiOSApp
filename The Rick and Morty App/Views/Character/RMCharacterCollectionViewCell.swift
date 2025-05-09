@@ -91,20 +91,21 @@ final class RMCharacterCollectionViewCell: UICollectionViewCell {
     }
     
     public func configure(with viewModel: RMCharacterCollectionViewCellViewModel) {
+        imageView.image = nil
         nameLabel.text = viewModel.characterName
         statusLabel.text = viewModel.characterStatusText
         viewModel.fetchImage { [weak self] result in
             switch result {
             case .success(let data):
                 DispatchQueue.main.async {
-                    let image = UIImage(data: data)
-                    self?.imageView.image = image
+                    if let image = UIImage(data: data) {
+                        self?.imageView.image = image
+                    } else {
+                    }
                 }
             case .failure(let error):
-                print(String(describing: error))
                 break
             }
         }
-
     }
 }
