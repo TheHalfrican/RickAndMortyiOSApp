@@ -92,7 +92,6 @@ class RMSearchResultsView: UIView {
         self.collectionView.isHidden = false
         collectionView.delegate = self
         collectionView.dataSource = self
-        collectionView.backgroundColor = .red
         collectionView.reloadData()
     }
     
