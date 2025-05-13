@@ -186,7 +186,7 @@ extension RMSearchResultsView: UICollectionViewDelegate, UICollectionViewDataSou
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         collectionView.deselectItem(at: indexPath, animated: true)
         
-        // Handle Cell Tap
+        // TODO: Handle Cell Tap
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout,
@@ -195,14 +195,14 @@ extension RMSearchResultsView: UICollectionViewDelegate, UICollectionViewDataSou
         let bounds = collectionView.bounds
         if currentViewModel is RMCharacterCollectionViewCellViewModel {
             // Character Size
-            let width = (bounds.width-30)/2
+            let width = UIDevice.isiPhone ? (bounds.width - 30)/2 : (bounds.width - 50) / 4
             return CGSize(
                 width: width,
                 height: width * 1.5
             )
         }
             // Episode Size
-        let width = bounds.width-20
+        let width = UIDevice.isiPhone ? bounds.width - 20 : (bounds.width - 50) / 4
         return CGSize(
             width: width,
             height: 100
